@@ -11,7 +11,7 @@ export default function App(){
     latitude : 45.38740921020508,
     longitude : -75.63768768310547,
     width : "70vw",
-    height : "100vh",
+    height : "85vh",
     zoom : 10
   });
   
@@ -86,42 +86,24 @@ export default function App(){
       </Paper>
       </div>
 
-      <div style={{width: '30%', padding: '10px 0px 0px 40px'}} >
-        <div style={{height: '500px', margin: '0px 0px 20px 0px'}}>
+      <div style={{width: '30%', padding: '10px 0px 0px 40px', height: '100%'}} >
+        
           <Paper elevation={1} >
-          chart here!!!
-            asdmabsdbasndasd
-            <br />
-            asd
-            asd
-            <br />
-            asd
-            asd
-            <br />
-            navcavbvnbv
-            <br />
-            asdashsavdhv
-            <br />
+            <div style={{height: '400px', margin: '0px 0px 20px 0px', padding: '10px'}}>
+                overview here!!!
+                <br /> <br /> 
+                
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </div>
           </Paper>
-        </div>
 
-        <div style={{height: '500px', margin: '0px'}}>
           <Paper elevation={1} >
-            chart here!!!
-            asdmabsdbasndasd
-            <br />
-            asd
-            asd
-            <br />
-            asd
-            asd
-            <br />
-            navcavbvnbv
-            <br />
-            asdashsavdhv
-            <br />
+            <div style={{height: '400px', margin: '0px 0px 20px 0px', padding: '10px'}}>
+                chart here!!!
+                <br /> <br />
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+              </div>
           </Paper>
-        </div>
         
       </div>
       

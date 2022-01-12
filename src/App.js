@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import ReactMapGL, {Marker, Popup} from 'react-map-gl';
-import parkData from './data/skateboard-parks';
+// import parkData from './data/skateboard-parks';
+import baseurl from './apis/baseurl';
 import './index.css';
 
 import { Paper } from '@mui/material';
@@ -16,9 +17,19 @@ export default function App(){
   });
   
   const [selectedPark,setSelectedPark] = useState(null)
+  const [parkData,setParkData]= useState();
   // console.log(process.env.REACT_APP_MAPBOX_TOKEN);
 
   useEffect (()=> {
+
+    const loadData = async ()=> {
+      const response = await baseurl.get('/park');
+      
+      setParkData(response.data);
+    }
+    
+    loadData();
+
     const listener = e => {
       if (e.key === "Escape"){
         setSelectedPark(null);
@@ -50,10 +61,12 @@ export default function App(){
           >
             
 
-          {parkData.features.map(park => (
-            <Marker key={park.properties.PARK_ID} 
-            latitude = {park.geometry.coordinates[1]}
-            longitude= {park.geometry.coordinates[0]}
+          {parkData && parkData.map(park => (
+            
+            
+            <Marker key={park.PARK_ID} 
+            latitude = {parseFloat(park.latitude)}
+            longitude= {parseFloat(park.longitude)}
             >
               <button className="marker-btn" onClick= {(e) => {
                 e.preventDefault();
@@ -66,15 +79,15 @@ export default function App(){
           ))}
 
           {selectedPark && (
-            <Popup latitude={selectedPark.geometry.coordinates[1]} 
-            longitude={selectedPark.geometry.coordinates[0]}
+            <Popup latitude={parseFloat(selectedPark.latitude)} 
+            longitude={parseFloat(selectedPark.longitude)}
             onClose={() => {
               setSelectedPark(null)
             }}
             >
               <div>
-                <h2>{selectedPark.properties.NAME}</h2>
-                <p>{selectedPark.properties.DESCRIPTIO}</p>
+                <h2>{selectedPark.NAME}</h2>
+                <p>{selectedPark.DESCRIPTIO}</p>
               </div>
             </Popup>
           )}

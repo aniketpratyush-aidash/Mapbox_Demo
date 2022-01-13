@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
 import {
   Chart as ChartJS,
@@ -30,23 +30,12 @@ const BarChart = () => {
         }
         
         loadData();
-        
-        // const listener = e => {
-        //   if (e.key === "Escape"){
-            
-        //   }
-        // };
-        // window.addEventListener("keydown", listener);
-    
-        // return () => {
-        //   window.removeEventListener("keydown", listener);
-    
-        // }
         },[]);
 
         
   var data = {
     labels: parkData?.map(x => x.name),
+    display :  true,
     datasets: [{
       label: `${parkData?.length} Coins Available`,
       data: parkData?.map(x => x.max_strength),
@@ -73,6 +62,12 @@ const BarChart = () => {
   var options = {
     maintainAspectRatio: false,
     scales: {
+      y: [{
+        scaleLabel: {
+          display: true,
+          labelString: 'probability'
+        }
+      }]
     },
     legend: {
       labels: {
